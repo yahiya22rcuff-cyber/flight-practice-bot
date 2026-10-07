@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#111827">
+<title>My AI Chatbot</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,sans-serif;background:#0b1020;color:#fff;height:100vh}
+.app{height:100vh;max-width:720px;margin:auto;display:flex;flex-direction:column;background:#111827}
+header{padding:16px;border-bottom:1px solid #263044;display:flex;gap:10px;align-items:center}
+.logo{width:40px;height:40px;border-radius:12px;background:#2563eb;display:grid;place-items:center;font-weight:800}
+h1{font-size:18px;margin:0}.status{font-size:12px;color:#9ca3af}
+#chat{flex:1;overflow:auto;padding:18px 14px}.msg{display:flex;margin:10px 0}
+.bubble{max-width:82%;padding:11px 13px;border-radius:16px;line-height:1.45;white-space:pre-wrap}
+.bot{background:#1f2937;border-bottom-left-radius:5px}.user{margin-left:auto;background:#2563eb;border-bottom-right-radius:5px}
+footer{padding:10px;border-top:1px solid #263044;display:flex;gap:8px}
+input{flex:1;border:1px solid #374151;border-radius:14px;background:#0b1020;color:#fff;padding:13px;font-size:16px;outline:none}
+button{border:0;border-radius:14px;background:#2563eb;color:#fff;padding:0 18px;font-weight:700}
+.small{font-size:11px;color:#9ca3af;text-align:center;padding:0 12px 8px}
+</style></head>
+<body>
+<div class="app">
+<header><div class="logo">AI</div><div><h1>My AI Chatbot</h1><div class="status">Demo assistant • runs in your browser</div></div></header>
+<div id="chat"></div>
+<div class="small">Safe demo — no API key is stored here.</div>
+<footer><input id="input" placeholder="Type your message..." autocomplete="off"><button id="send">Send</button></footer>
+</div>
+<script>
+const chat=document.getElementById('chat'), input=document.getElementById('input');
+function add(text,who){const r=document.createElement('div');r.className='msg '+who;const b=document.createElement('div');b.className='bubble '+who;b.textContent=text;r.appendChild(b);chat.appendChild(r);chat.scrollTop=chat.scrollHeight}
+function reply(t){
+ const s=t.toLowerCase();
+ if(/hello|hi|salam/.test(s)) return 'Hello! 👋 I am your demo AI assistant. How can I help you?';
+ if(/who are you|what are you/.test(s)) return 'I am your phone-friendly AI chatbot demo. A secure backend can later connect this interface to a real AI model.';
+ if(s.includes('help')) return 'Sure! Ask me a question or ask me to explain a topic.';
+ if(s.includes('thank')) return 'You are welcome! 😊';
+ return 'I received: "'+t+'"
+
+This version is a demo. For real AI answers, this interface should connect to a secure server-side AI backend so an API key is never exposed in the website.';
+}
+function send(){const t=input.value.trim();if(!t)return;add(t,'user');input.value='';setTimeout(()=>add(reply(t),'bot'),350)}
+document.getElementById('send').onclick=send;
+input.addEventListener('keydown',e=>{if(e.key==='Enter')send()});
+add('Assalam-o-alaikum! 👋 I am your AI chatbot demo. Ask me something!','bot');
+</script></body></html>
