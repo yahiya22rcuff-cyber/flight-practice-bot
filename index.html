@@ -34,11 +34,9 @@ function reply(t){
  if(/hello|hi|salam/.test(s)) return 'Hello! 👋 I am your demo AI assistant. How can I help you?';
  if(/who are you|what are you/.test(s)) return 'I am your phone-friendly AI chatbot demo. A secure backend can later connect this interface to a real AI model.';
  if(s.includes('help')) return 'Sure! Ask me a question or ask me to explain a topic.';
- if(s.includes('thank')) return 'You are welcome! 😊';
- return 'I received: "'+t+'"
-
-This version is a demo. For real AI answers, this interface should connect to a secure server-side AI backend so an API key is never exposed in the website.';
-}
+ if(s.includes('thank')) return 'You are welcome! 😊'
+return 'I received: "'+t+'"\nThis version is a demo. For real AI answers, this interface should connect to a secure server-side AI backend so an API key is never exposed in the website.';
+ }
 function send(){const t=input.value.trim();if(!t)return;add(t,'user');input.value='';setTimeout(()=>add(reply(t),'bot'),350)}
 document.getElementById('send').onclick=send;
 input.addEventListener('keydown',e=>{if(e.key==='Enter')send()});
