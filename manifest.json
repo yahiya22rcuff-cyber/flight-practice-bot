@@ -1,0 +1,26 @@
+{
+  "background_color": "#ffffff",
+  "description": "Modern AI chatbot powered by Gemini with a sleek dark theme, real-time responses, and an intuitive mobile-friendly chat interface.",
+  "dir": "ltr",
+  "display": "standalone",
+  "name": "YS AI Chatbot",
+  "orientation": "any",
+  "scope": "/",
+  "short_name": "YS AI",
+  "start_url": "/",
+  "theme_color": "#ffffff",
+  "icons": [
+    {
+      "src": "https://ys-chatbot-pakistan.ai.studio/favicon.ico",
+      "type": "image/x-icon",
+      "isSquare": false,
+      "isPng": false,
+      "isWebp": false,
+      "isJpg": false,
+      "width": 0,
+      "is512x512": false,
+      "is256x256": false,
+      "is192x192": false
+    }
+  ]
+}
